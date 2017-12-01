@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>if判断和for循环</title>
+	<!--导入Vue.js需要的js包-->
+	<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+	<!--定义一个id为myApp的div-->
+	<div id="myApp">
+		<h3>上海</h3>
+		<!--这个div的显示需要条件，如果isShow为True则显示，如果为False则不显示-->
+		<div v-if="isShow">Shanghai</div>
+		<ol>
+			<!--这个li是一组for循环，后面的值类似于java的foreach，shanghais是下面定义的数据，shanghai是每一组数据-->
+			<li v-for="shanghai in shanghais">
+				<!--显示每一组数据的name和pingyin-->
+				{{shanghai.name}} ({{shanghai.pinyin}})
+			</li>
+		</ol>
+	</div>
+</body>
+<script type="text/javascript">
+//创建Vue实例
+var app = new Vue({
+		//选择id为myApp的组件
+		el:"#myApp",
+		data:{
+			//isShow为控制if的变量
+			isShow:true,
+			//shanghais为for循环输出的数据key：value
+			shanghais:[
+			{
+				name:"浦东新区",pinyin:"pudongxinqu"
+			},
+			{
+				name:"闵行区",pinyin:"minhangqu"
+			},
+			{
+				name:"金山区",pinyin:"jinshanqu"
+			}
+			]
+		}
+	})
+</script>
+
+</html>
